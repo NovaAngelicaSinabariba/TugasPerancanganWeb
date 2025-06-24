@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST Bhinneka</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+        }
+        .container {
+            border: 1px solid black;
+            padding: 15px;
+            width: 500px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .logo img {
+            width: 70px;
+            margin-right: 10px;
+        }
+        .title h1, .title h2 {
+            margin: 0;  /* Menghilangkan jarak antar teks */
+            padding: 0;
+            line-height: 1; /* Mengurangi tinggi baris */
+            margin-left: 10px;
+        }
+        .navigation a {
+            display: block;
+            color: blue;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .form-left, .form-right {
+            width: 48%;
+        }
+        .form-left label, .form-right label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="password"], 
+        input[type="number"], input[type="date"], textarea {
+            width: 70%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-group label {
+            width: 120px; /* Menyamakan lebar label */
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            flex: 1; /* Agar input menyesuaikan lebar */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo" onclick="location.href='dashboard.html';">
+            <img src="d:\TugasWeb\Image\logo.png" class="sFlh5c FyHeAf iPVvYb" style="max-width: 100px; height: 100px; margin: 0px; width: 150px;" alt="Library ST Bhinneka | Perpustakaan ST Bhinneka" jsname="kn3ccd" aria-hidden="false">
+            <div class="title">
+                <h1>ST Bhinneka</h1>
+                <h2>UNIVERSITAS</h2>
+                <h2>SATYA TERRA BHINNEKA</h2>
+            </div>
+        </div>
+        <h2>Menu Navigasi</h2>
+        <ul class="navigation">
+            <li><a href="https://satyaterrabhinneka.ac.id/">Beranda</a></li>
+            <li><a href="https://satyaterrabhinneka.ac.id/profil/visi-misi/">Tentang Kami</a></li>
+            <li><a href="https://satyaterrabhinneka.ac.id/kontak/">Hubungi Kami</a></li>
+        </ul>
+        <h2>Formulir Pengguna</h2>
+        <form>
+            <div class="form-group">
+                <label>Nama:</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email">
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password">
+            </div>
+            <div class="form-group">
+                <label>Alamat:</label>
+                <textarea rows="3"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-left">
+                    <label>Jenis Kelamin:</label><br>
+                    <input type="radio" name="gender"> Laki-laki<br>
+                    <input type="radio" name="gender"> Perempuan
+                    <br><br>
+                    <label>Hobi:</label><br>
+                    <input type="checkbox"> Olahraga<br>
+                    <input type="checkbox"> Musik<br>
+                    <input type="checkbox"> Membaca
+                </div>
+                <div class="form-right">
+                    <label>Usia:</label>
+                    <input type="number" style="width: 50px;">
+                    <br><br>
+                    <label>Pilih Gambar:</label>
+                    <input type="file">
+                    <br><br>
+                    <label>Tanggal Lahir:</label>
+                    <input type="date">
+                </div>
+            </div>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Konversi Bilangan</title>
+  <style>
+    /* Reset dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Video Background */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Kontainer utama */
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      top: 30%;
+      color: white;
+      background-color: rgba(169, 161, 161, 0.655); /* semi transparan */
+      padding: 40px;
+      max-width: 400px;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+
+    /* Input dan tombol */
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff4081;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e73370;
+    }
+
+    .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.2); /* putih semi-transparan */
+        z-index: 0; /* tetap di atas video, tapi di bawah konten */
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Video Background -->
+  <video autoplay muted loop id="bg-video">
+    <source src="img_vid/backgroundTugas9.mp4" type="video/mp4">
+    Browser Anda tidak mendukung video.
+  </video>
+
+  <div class="video-overlay"></div>
+
+  <!-- Konten Aplikasi -->
+  <div class="container">
+    <h1>Konversi Bilangan</h1>
+    <input type="text" id="inputBilangan" placeholder="Masukkan Bilangan Desimal" />
+    <br>
+    <button onclick="konversiBilangan()">Konversi</button>
+  </div>
+
+  <script>
+    function konversiBilangan() {
+      const input = document.getElementById("inputBilangan").value;
+      const angka = parseInt(input);
+
+      if (isNaN(angka)) {
+        alert("Masukkan Angka yang benar!");
+      } else {
+        const biner = angka.toString(2);
+        const oktal = angka.toString(8);
+        const heksa = angka.toString(16).toUpperCase();
+
+        alert(`Biner : ${biner}\nOktal : ${oktal}\nHeksadesimal: ${heksa}`);
+      }
+    }
+  </script>
+
+</body>
+</html>

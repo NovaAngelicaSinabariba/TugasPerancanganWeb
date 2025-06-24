@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("https://wallpapers.com/images/hd/haikyuu-anime-volleyball-hd-amgtf5osas20dpba.webp")
+    no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+h1 span {
+  color: orange;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid orange;
+  color: orange;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: orange;
+  color: black;
+}

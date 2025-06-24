@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar Buku</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #dbdcdc;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .search-bar {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .search-bar input[type="text"] {
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: calc(100% - 120px);
+      max-width: 200px;
+    }
+    .radio-group {
+      margin-top: 10px;
+    }
+    .radio-group label {
+      margin-right: 15px;
+      font-size: 14px;
+    }
+    .books {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .book {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+      padding: 15px;
+      text-align: center;
+    }
+    .book:hover {
+      transform: translateY(-5px);
+    }
+    .book img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .book strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <h1>DAFTAR BUKU</h1>
+
+  <div class="search-bar">
+    <input type="text" id="keyword" placeholder="Search" />
+    <div class="radio-group">
+      <label><input type="radio" name="filter" value="title" checked> Title</label>
+      <label><input type="radio" name="filter" value="author"> Author</label>
+      <label><input type="radio" name="filter" value="publisher"> Publisher</label>
+      <label><input type="radio" name="filter" value="titleyear"> Title & Year</label>
+      <input type="text" id="year" placeholder="Year" style="width: 80px;" />
+    </div>
+  </div>
+
+  <div class="books" id="book-list"></div>
+
+  <script>
+    const books = [
+      { title: "Maybe In Another Life", author: "N&S", publisher: "Gugugaga", year: "2010", img: "https://i.imgur.com/CokPM8M.jpeg" },
+      { title: "Sampai Kita Tua", author: "Sinabariba", publisher: "Indeks", year: "2011", img: "https://i.imgur.com/R7LRlAT.jpeg" },
+      { title: "Guardian Brothers", author: "Arsen & Arya", publisher: "Modula", year: "2012", img: "https://i.imgur.com/Juh21d3.jpeg" },
+      { title: "Magazine Fashion", author: "Sally", publisher: "Andi Publisher", year: "2013", img: "https://i.imgur.com/SKNSuOn.jpeg" },
+      { title: "Three Best Friends Until The End", author: "3One", publisher: "Deepublish", year: "2014", img: "https://i.imgur.com/J0JUmjS.jpeg" },
+      { title: "Loving My Self", author: "Nova", publisher: "Graha Ilmu", year: "2015", img: "https://i.imgur.com/uLDtzLi.jpeg" },
+      { title: "The Simplicity of Love", author: "Sabda Ganteng", publisher: "Informatika", year: "2016", img: "https://i.imgur.com/vsNnxPY.jpeg" },
+      { title: "Keluarga Cemara", author: "Sinabariba", publisher: "Indeks", year: "2017", img: "https://i.imgur.com/2CWGyof.jpeg" },
+      { title: "Enchanged", author: "Melissa Mayer", publisher: "Modula", year: "2018", img: "https://i.imgur.com/EyKSmx7.jpeg" },
+      { title: "They Both Die At The Night", author: "Adam Silvera", publisher: "Andi Publisher", year: "2019", img: "https://i.imgur.com/ZF8SvY3.jpeg" },
+      { title: "War of Eden", author: "Willy", publisher: "Deepublish", year: "2020", img: "https://i.imgur.com/N9qshQM.jpeg" },
+      { title: "If You Could See The Sun", author: "Ann Liang", publisher: "Graha Ilmu", year: "2011", img: "https://i.imgur.com/Q7gOlQn.jpeg" },
+      { title: "Twisted Love", author: "Anna Huang", publisher: "Informatika", year: "2012", img: "https://i.imgur.com/aizzYGl.jpeg" },
+      { title: "Alice in Neverland", author: "Jeni Conrad", publisher: "Indeks", year: "2013", img: "https://i.imgur.com/jCySPYK.jpeg" },
+      { title: "Over The Sirens", author: "Zelda Reese", publisher: "Modula", year: "2014", img: "https://i.imgur.com/erb94hz.jpeg" },
+      { title: "Shadow Girl", author: "Liana Liu", publisher: "Andi Publisher", year: "2015", img: "https://i.imgur.com/UNle6Fy.jpeg" },
+      { title: "Until My Hearts Gives In", author: "Lily", publisher: "Deepublish", year: "2016", img: "https://i.imgur.com/MlnQaVa.jpeg" },
+      { title: "No Body Knows But You", author: "Anica Mrose Rissi", publisher: "Graha Ilmu", year: "2017", img: "https://i.imgur.com/MVZb0YP.jpeg" },
+      { title: "Lost in The Never Woods", author: "AIden Thomas", publisher: "Informatika", year: "2018", img: "https://i.imgur.com/b9Z4VPh.jpeg" },
+      { title: "Black Hearts", author: "Jenna Wood", publisher: "Indeks", year: "2019", img: "https://i.imgur.com/UT8ZH5U.jpeg" }
+    ];
+
+    const renderBooks = (filteredBooks) => {
+      const container = document.getElementById("book-list");
+      container.innerHTML = "";
+      filteredBooks.forEach(book => {
+        container.innerHTML += `
+          <div class="book">
+            <img src="${book.img}" alt="${book.title}" />
+            <strong>${book.title}</strong>
+            ${book.author}<br>
+            ${book.publisher} ${book.year}
+          </div>
+        `;
+      });
+    };
+
+      const filterBooks = () => {
+        const keyword = document.getElementById("keyword").value.toLowerCase();
+        const year = document.getElementById("year").value;
+        const filter = document.querySelector('input[name="filter"]:checked').value;
+
+        const result = books.filter(book => {
+          const matchYear = year === "" || book.year === year; // cocokkan tahun jika ada input
+
+          if (filter === "title") return book.title.toLowerCase().includes(keyword) && matchYear;
+          if (filter === "author") return book.author.toLowerCase().includes(keyword) && matchYear;
+          if (filter === "publisher") return book.publisher.toLowerCase().includes(keyword) && matchYear;
+          if (filter === "titleyear") {
+            return book.title.toLowerCase().includes(keyword) && book.year === year;
+          }
+          return true;
+        });
+
+        renderBooks(result);
+      };
+
+
+    document.getElementById("keyword").addEventListener("input", filterBooks);
+    document.getElementById("year").addEventListener("input", filterBooks);
+    document.querySelectorAll('input[name="filter"]').forEach(el => {
+      el.addEventListener("change", filterBooks);
+    });
+
+    renderBooks(books);
+  </script>
+</body>
+</html>

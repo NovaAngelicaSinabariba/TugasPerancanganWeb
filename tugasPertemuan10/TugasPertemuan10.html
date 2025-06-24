@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoopla</title>
+    <style>
+        body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("https://wallpapers.com/images/hd/haikyuu-anime-volleyball-hd-amgtf5osas20dpba.webp")
+    no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+h1 span {
+  color: orange;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid orange;
+  color: orange;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: orange;
+  color: black;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>EXPLORER YOUR MOVIES <span id="genre">ACTION</span></h1>
+      <p>
+        Streaming film dan acara TV tak terbatas di ponsel, tablet, laptop, dan
+        TV-mu.
+      </p>
+      <div class="buttons">
+        <button id="register">REGISTER</button>
+        <button id="login">LOGIN</button>
+      </div>
+    </div>
+
+    <script>
+        document.getElementById("register").addEventListener("click", function () {
+        alert("Website Dalam Perbaikan");
+        });
+
+        document.getElementById("login").addEventListener("click", function () {
+        alert("Website Dalam Perbaikan");
+        });
+
+        const genres = ["HORROR", "ACTION", "ROMANCE", "COMEDY"];
+        let index = 0;
+
+        setInterval(() => {
+        document.getElementById("genre").textContent = genres[index];
+        index = (index + 1) % genres.length;
+        }, 4000);
+    </script>
+    
+  </body>
+</html>
